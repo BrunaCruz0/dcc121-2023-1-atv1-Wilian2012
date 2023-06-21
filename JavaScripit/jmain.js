@@ -16,9 +16,11 @@ function comecaArrastar(evento) {
 
 function recebeAlgo(evento) {
 
-    if (arrastado) {
+    if (arrastado && evento.target.classList.has('casa')) {
         evento.target.appendChild(arrastado);
         arrastado = null
+
+        
     }
 
 }
@@ -40,9 +42,10 @@ function setup() {
     }
 }
 
-function criaCasa(casa) {
+function criaCasa(casa,k) {
     const eCasa = document.createElement('div');
-    eCasa.classList.add("casa");
+    eCasa.dataset.posicao=k;
+    eCasa.classList.add('casa');
     eCasa.addEventListener('dragover', passouPorCima);
     eCasa.addEventListener('drop', recebeAlgo);
     if (casa){
@@ -53,10 +56,13 @@ function criaCasa(casa) {
     return eCasa;
 }
 
-function criaDisco (casa) {
+function criaDisco (casa,k) {
     const eDisco = document.createElement ('div');
-    eDisco.classList.add('disco');
+   
     eDisco.addEventListener('dragstart', comecaArrastar);
+    eDisco.draggable=true;
+    eDisco.dataset.posicao=k;
+    eDisco.classList.add('disco');
     if (casa=='p') {
         eDisco.classList.add('preto');
      } else {
