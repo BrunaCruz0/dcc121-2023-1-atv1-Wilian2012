@@ -7,3 +7,7 @@ export function getTabuleiro (){
 export function mover(de,para){
     return false
 }
+
+export function mover (de, para){
+    return false
+}

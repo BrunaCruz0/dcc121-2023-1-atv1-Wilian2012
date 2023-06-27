@@ -1,4 +1,4 @@
-import { getTabuleiro } from "./states.js";
+import { getTabuleiro, mover } from "./states.js";
 
 const eTabuleiro = document.querySelector('.Tabuleiro');
 
@@ -21,7 +21,13 @@ function recebeAlgo(evento) {
         const posDisco=arrastado.dataset.posicao;
         const posCasa=evento.target.dataset.posicao;
         console.log ()
+        if(mover(posDisco.posCasa)){
+            evento.target.appendChild(arrastado);
+
+        }
         arrastado=null;   
+    } else{
+        console.log ('Não pode mover')
     }
 
 }
