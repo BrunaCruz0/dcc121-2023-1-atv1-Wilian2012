@@ -23,6 +23,7 @@ function recebeAlgo(evento) {
         console.log ()
         if(mover(posDisco.posCasa)){
             evento.target.appendChild(arrastado);
+            arrastado.dataset.posicao = posCasa;
 
         }
         arrastado=null;   
