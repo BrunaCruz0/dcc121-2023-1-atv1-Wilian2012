@@ -11,6 +11,13 @@ export function mover(de, para){
     if(tabuleiro[para]!==null){
         return false;
     }
+    if (Math.abs(dis)===2) {
+        if ( dist > 0 && tabuleiro[de + 1]===null){
+            return false;
+        } else if (dist < 0 && tabuleiro[de -1]===null){
+            return false;
+        }
+    }
     tabuleiro[para]=tabuleiro[de];
     tabuleiro[de]=null;
 

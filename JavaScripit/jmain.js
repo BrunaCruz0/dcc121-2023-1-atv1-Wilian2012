@@ -16,20 +16,22 @@ function comecaArrastar(evento) {
 
 function recebeAlgo(evento) {
 
-    if (arrastado && evento.target.classList.has('casa')) {
-        evento.target.appendChild(arrastado);
-        const posDisco=arrastado.dataset.posicao;
-        const posCasa=evento.target.dataset.posicao;
+    if (!arrastado || !evento.target.classList.contains ('casa')) 
+    {
+        return;
+    }
+        const posDisco=Number(arrastado.dataset.posicao);
+        const posCasa=Number(evento.target.dataset.posicao);
         console.log ()
-        if(mover(posDisco.posCasa)){
+        if(mover(posDisco, posCasa)){
             evento.target.appendChild(arrastado);
             arrastado.dataset.posicao = posCasa;
 
+            arrastado=null;   
         }
-        arrastado=null;   
     } 
 
-}
+
 
 
 function passouPorCima(evento) {
