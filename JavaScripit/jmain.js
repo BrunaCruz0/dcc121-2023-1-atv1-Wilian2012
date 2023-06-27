@@ -26,9 +26,7 @@ function recebeAlgo(evento) {
 
         }
         arrastado=null;   
-    } else{
-        console.log ('Não pode mover')
-    }
+    } 
 
 }
 
