@@ -5,13 +5,18 @@ export function getTabuleiro (){
 }
 
 export function mover(de, para){
+    const dist=para-de;
     if(Math.abs(para-de)>=3){
+        console.log("erro 1");
         return false;
     }
     if(tabuleiro[para]!==null){
+        console.log("erro 2");
+        console.log(tabuleiro[para], para);
         return false;
     }
-    if (Math.abs(dis)===2) {
+    if (Math.abs(dist)===2) {
+        console.log("erro 3");
         if ( dist > 0 && tabuleiro[de + 1]===null){
             return false;
         } else if (dist < 0 && tabuleiro[de -1]===null){

@@ -22,11 +22,11 @@ function recebeAlgo(evento) {
     }
         const posDisco=Number(arrastado.dataset.posicao);
         const posCasa=Number(evento.target.dataset.posicao);
-        console.log ()
         if(mover(posDisco, posCasa)){
             evento.target.appendChild(arrastado);
             arrastado.dataset.posicao = posCasa;
-
+            
+            console.log ('aaa')
             arrastado=null;   
         }
     } 
@@ -45,7 +45,7 @@ function setup() {
     const tabuleiro = getTabuleiro();
     for (let i = 0; i < tabuleiro.length; i++) {
         const casa = tabuleiro[i];
-        const eCasa = criaCasa(casa);
+        const eCasa = criaCasa(casa, i);
         eTabuleiro.appendChild(eCasa);
        
     }
@@ -58,7 +58,7 @@ function criaCasa(casa,k) {
     eCasa.addEventListener('dragover', passouPorCima);
     eCasa.addEventListener('drop', recebeAlgo);
     if (casa){
-        const eDisco= criaDisco(casa);
+        const eDisco= criaDisco(casa, k);
         eCasa.appendChild (eDisco);
     }
 
