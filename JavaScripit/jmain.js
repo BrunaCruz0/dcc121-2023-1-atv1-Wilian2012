@@ -18,12 +18,14 @@ function recebeAlgo(evento) {
 
     if (arrastado && evento.target.classList.has('casa')) {
         evento.target.appendChild(arrastado);
-        arrastado = null
-
-        
+        const posDisco=arrastado.dataset.posicao;
+        const posCasa=evento.target.dataset.posicao;
+        console.log ()
+        arrastado=null;   
     }
 
 }
+
 
 function passouPorCima(evento) {
 
